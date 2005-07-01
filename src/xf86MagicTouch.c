@@ -61,7 +61,7 @@
 #endif /* defined(sun) && !defined(i386) */
 
 #if !defined(sun) || defined(i386)
-#include "os.h"
+#include <X11/os.h>
 #include "osdep.h"
 #include "exevents.h"
 
