@@ -695,7 +695,7 @@ xf86MagicControl(DeviceIntPtr dev,
 			DBG(2, ErrorF("MagicTouch OFF\n") );
 			dev->public.on = FALSE;
 			if (local->fd>=0)
-			   emoveEnabledDevice(local->fd);
+			   RemoveEnabledDevice(local->fd);
 				
 			SYSCALL( close(local->fd) );
 			local->fd = -1;
