@@ -574,7 +574,11 @@ xf86MagicControl(DeviceIntPtr dev,
 			/*
 			 * Il movimento viene eseguito su due assi in coordinate assolute.
 			 */
-			if (InitValuatorClassDeviceStruct(dev, 2, xf86GetMotionEvents, local->history_size, Absolute) == FALSE ) 
+			if (InitValuatorClassDeviceStruct(dev, 2,
+#if GET_ABI_MAJOR(ABI_XINPUT_VERSION) < 3
+				    xf86GetMotionEvents,
+#endif
+				    local->history_size, Absolute) == FALSE )
 			{
 				ErrorF("MagicTouch ValuatorClassDeviceStruct: ERRORE\n");
 				return !Success;
